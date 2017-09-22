@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>pinglun.html</title>
+
+<meta name="keywords" content="keyword1,keyword2,keyword3">
+<meta name="description" content="this is my page">
+<meta name="content-type" content="text/html; charset=UTF-8">
+<script type="text/javascript" src="js/jquery-1.9.1.js"></script>
+<script type="text/javascript">
+  $(function(){
+   $("#bt").click(function(){
+   	$.ajax({
+           url:"PingLunServlet",
+           data:{
+           content:$("#cc").val(),
+           
+           },
+           type:"post",
+           dataType:"text",
+           success:function(data){
+          
+           
+          
+               var html="";
+               html+="<li>";
+               html+=data;
+               html+="</li>";
+               $("#oo").html(html);//innerHTML
+           
+           },
+           error:function(){
+             alert("错误，请检查代码");
+           }
+        });
+    
+    });
+   });
+  
+ 
+
+
+</script>
+
+
+
+</head>
+
+<body>
+	<div id="all" style="margin:0 auto;width=960px;height:900px;">
+		<input id="cc" type="text"><br /> <input id="bt"
+			type="button" value="submit">
+
+		<div>
+			<ol id="oo">
+
+
+			</ol>
+
+		</div>
+
+	</div>
+
+
+
+</body>
+</html>
